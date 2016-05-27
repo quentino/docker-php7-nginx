@@ -11,3 +11,14 @@ In the project root directory run the following command:
 docker-compose up -d
 ```
 
+To stop containers run:
+
+```
+docker-compose stop
+```
+
+To remove stoped containers run:
+
+```
+docker-composer rm -f
+```
