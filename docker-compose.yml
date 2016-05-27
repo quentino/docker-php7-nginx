@@ -1,0 +1,17 @@
+php:
+  build: .
+  volumes:
+    - .:/var/www/app
+  environment:
+    XDEBUG_CONFIG: remote_host=192.168.99.1
+    PHP_IDE_CONFIG: serverName=docker-symfony
+nginx:
+  image: nginx:1.9.10
+  links:
+    - php
+  volumes_from:
+    - php
+  volumes:
+    - ./docker-cfg-template/vhost.conf:/etc/nginx/conf.d/default.conf
+  ports:
+    - "80:80"
